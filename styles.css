@@ -8,14 +8,20 @@ html {
     font-size: 62.5%;
 }
 
-.button {
-    height: 5rem;
-    width: 7rem;
+.input div {
+    height: 6rem;
+    width: 8rem;
     font-size: 3rem;
     background-color: darkgrey;
     border: solid 2px black;
-    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.input {
+height: 50rem;
+width: 40rem;
+display: flex;
+flex-wrap: wrap;
 }
