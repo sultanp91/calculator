@@ -25,3 +25,10 @@ width: 40rem;
 display: flex;
 flex-wrap: wrap;
 }
+
+.display {
+    height: 10rem;
+    width: 30rem;
+    background-color: darkgray;
+    color: white;
+}

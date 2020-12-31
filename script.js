@@ -36,6 +36,7 @@ let minusButton = document.querySelector("#minus");
 let multiplyButton = document.querySelector("#multiply");
 let divideButton = document.querySelector("#divide")
 let equalsButton = document.querySelector("#equals");
+let clearButton = document.querySelector("#clear")
 
 let updateDisplay = () =>{
 let newDisplay = parseInt(currentValue.join(""))
@@ -62,10 +63,31 @@ plusButton.addEventListener("click", () => {
     operand = add;
 })
 
+minusButton.addEventListener("click", () => {
+    storeValue();
+    operand = subtract;
+})
+
+multiplyButton.addEventListener("click", () => {
+    storeValue();
+    operand = multiply;
+})
+
+divideButton.addEventListener("click", () => {
+    storeValue();
+    operand = divide;
+})
+
  equalsButton.addEventListener("click", () => {
 
         let result = operate(storedValue, parseInt(currentValue.join("")), operand)
-
         storedValue = result;
         displayNum.textContent = result;
+    
  });
+
+ clearButton.addEventListener("click", () => {
+    currentValue.splice(0, currentValue.length);
+    storedValue.splice(0, storedValue.length);
+    displayNum.textContent = ""
+ })
