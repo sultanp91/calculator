@@ -39,8 +39,10 @@ let deleteButton = document.querySelector("#delete");
 
 
 let updateDisplay = () =>{
-let newDisplay = parseInt(currentValue.join(""))
-displayNum.textContent = newDisplay;
+    if(currentValue.length >= 1){
+        let newDisplay = parseInt(currentValue.join(""))
+        displayNum.textContent = newDisplay;
+    }
 }
 
 let storeValue = () => {
@@ -52,9 +54,7 @@ let storeValue = () => {
 
 input.addEventListener("click", (e) => {
     if(e.target.className === "numinput" || e.target.parentElement.className === "numinput"){
-
         currentValue.push(e.target.textContent);
-
         updateDisplay();
     }
 });
@@ -100,4 +100,15 @@ divideButton.addEventListener("click", () => {
     currentValue.splice(0, currentValue.length);
     storedValue = [];
     displayNum.textContent = ""
+ })
+
+ deleteButton.addEventListener("click", () => {
+     
+    if(currentValue.length === 1){
+        currentValue.pop();
+        displayNum.textContent = ""
+    } else if(currentValue.length > 1){
+        currentValue.pop();
+        updateDisplay();
+     }  
  })
