@@ -103,7 +103,7 @@ divideButton.addEventListener("click", () => {
  clearButton.addEventListener("click", () => {
     currentValue.splice(0, currentValue.length);
     storedValue = [];
-    displayNum.textContent = ""
+    displayNum.textContent = "0"
  })
 
  deleteButton.addEventListener("click", () => {
