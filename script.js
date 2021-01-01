@@ -24,8 +24,6 @@ let operate = (a, b, c) => {
     return c(a, b);
 }
 
-// operate can take in 
-
 let storedValue = [];
 let currentValue = [];
 
@@ -36,7 +34,9 @@ let minusButton = document.querySelector("#minus");
 let multiplyButton = document.querySelector("#multiply");
 let divideButton = document.querySelector("#divide")
 let equalsButton = document.querySelector("#equals");
-let clearButton = document.querySelector("#clear")
+let clearButton = document.querySelector("#clear");
+let deleteButton = document.querySelector("#delete");
+
 
 let updateDisplay = () =>{
 let newDisplay = parseInt(currentValue.join(""))
@@ -44,8 +44,10 @@ displayNum.textContent = newDisplay;
 }
 
 let storeValue = () => {
+    if(storedValue.length === 0){
     storedValue = parseInt([...currentValue].join(""));
     currentValue.splice(0, currentValue.length);
+}
 }
 
 input.addEventListener("click", (e) => {
@@ -76,18 +78,26 @@ multiplyButton.addEventListener("click", () => {
 divideButton.addEventListener("click", () => {
     storeValue();
     operand = divide;
+    
 })
 
  equalsButton.addEventListener("click", () => {
-
+     if(currentValue.length > 0 && storedValue >= 0){
+        if(parseInt(currentValue.join("")) === 0 && operand === divide){
+            displayNum.textContent = "Don't divide by ZERO!!!"
+            currentValue.splice(0, currentValue.length);
+            storedValue = [];
+        } else{
         let result = operate(storedValue, parseInt(currentValue.join("")), operand)
         storedValue = result;
+        currentValue.splice(0, currentValue.length);
         displayNum.textContent = result;
-    
+    }
+    }
  });
 
  clearButton.addEventListener("click", () => {
     currentValue.splice(0, currentValue.length);
-    storedValue.splice(0, storedValue.length);
+    storedValue = [];
     displayNum.textContent = ""
  })
