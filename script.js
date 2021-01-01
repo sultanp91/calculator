@@ -65,7 +65,7 @@ input.addEventListener("click", (e) => {
 
 
 plusButton.addEventListener("click", () => {
-    if(currentValue.length > 0 || storedValue !== []){
+    if(currentValue.length > 0 || typeof(storedValue) === "number"){
         storeValue();
         operand = add;
     }
@@ -73,21 +73,23 @@ plusButton.addEventListener("click", () => {
 })
 
 minusButton.addEventListener("click", () => {
-    if(currentValue.length > 0 || storedValue !== []){
+    if(currentValue.length > 0 || typeof(storedValue) === "number"){
         storeValue();
         operand = subtract;
+    } else {
+        alert("working!")
     }
 })
 
 multiplyButton.addEventListener("click", () => {
-    if(currentValue.length > 0  || storedValue !== []){
+    if(currentValue.length > 0  || typeof(storedValue) === "number"){
         storeValue();
         operand = multiply;
     }
 })
 
 divideButton.addEventListener("click", () => {
-    if(currentValue.length > 0  || storedValue !== []){
+    if(currentValue.length > 0  || typeof(storedValue) === "number"){
         storeValue();
         operand = divide;
     }
