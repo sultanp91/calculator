@@ -8,27 +8,63 @@ html {
     font-size: 62.5%;
 }
 
+body {
+    padding-top: 5rem;
+}
+.container {
+    background-color: darkslateblue;
+    width: 50rem;
+    height: 65rem;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.display {
+    height: 12rem;
+    width: 100%%;
+    padding: 0.5rem;
+    margin: auto;
+    background-color: darkgray;
+    color: white;
+    font-size: 4rem;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .input div {
-    height: 6rem;
-    width: 8rem;
     font-size: 3rem;
+    cursor: pointer;
     background-color: darkgrey;
     border: solid 2px black;
+    border-radius: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0rem 0.5rem 0.5rem 0rem rgba(0,0,0,0.5);
+
+}
+
+.input div:hover{
+    background-color: rgba(146, 143, 143);
+}
+
+.input div:active{
+    box-shadow: none;
 }
 
 .input {
 height: 50rem;
-width: 40rem;
-display: flex;
-flex-wrap: wrap;
+width: 100%;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-gap: 1rem;
+padding: 1rem 0rem;
 }
 
-.display {
-    height: 10rem;
-    width: 30rem;
-    background-color: darkgray;
-    color: white;
+#clear, #equals {
+    grid-column: span 2;
 }
+

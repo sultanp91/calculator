@@ -36,18 +36,22 @@ let divideButton = document.querySelector("#divide")
 let equalsButton = document.querySelector("#equals");
 let clearButton = document.querySelector("#clear");
 let deleteButton = document.querySelector("#delete");
+let decimalButton = document.querySelector("#decimal");
 
 
 let updateDisplay = () =>{
     if(currentValue.length >= 1){
-        let newDisplay = parseInt(currentValue.join(""))
+        let newDisplay = parseFloat(currentValue.join(""))
         displayNum.textContent = newDisplay;
     }
-}
+} 
+
+
+
 
 let storeValue = () => {
     if(storedValue.length === 0){
-    storedValue = parseInt([...currentValue].join(""));
+    storedValue = parseFloat([...currentValue].join(""));
     currentValue.splice(0, currentValue.length);
 }
 }
@@ -112,3 +116,11 @@ divideButton.addEventListener("click", () => {
         updateDisplay();
      }  
  })
+
+decimalButton.addEventListener("click", () => {
+    if(currentValue.indexOf(".") === -1){
+        currentValue.push(".");
+        console.log(currentValue);
+        updateDisplay();
+    }
+})
